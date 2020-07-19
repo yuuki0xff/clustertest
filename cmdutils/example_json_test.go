@@ -8,12 +8,16 @@ import (
 )
 
 type Foo struct {
+	// NOTE: json.Unmarshal() can not unmarshal the Abstract interface directly.
 	Bar AbstractUnmarshaller
 }
 
-type Abstract interface{}
+type Abstract interface{ Method() }
 type Concrete1 struct{ C1 string }
 type Concrete2 struct{ C2 string }
+
+func (c *Concrete1) Method() {}
+func (c *Concrete2) Method() {}
 
 type AbstractUnmarshaller struct {
 	Data Abstract
