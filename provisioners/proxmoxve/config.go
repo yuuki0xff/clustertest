@@ -13,7 +13,7 @@ type PveSpec struct {
 	// Identifier of the spec.
 	Name string
 	// Proxmox VE account settings..
-	Proxmox *struct {
+	Proxmox struct {
 		// URL of the Proxmox VE API server.
 		// Example: https://pve.local:8006
 		Address string
@@ -34,7 +34,7 @@ type PveSpec struct {
 	} `yaml:"address_pools"`
 	// User information.
 	// This user will create by cloud-init at VM start-up.
-	User *struct {
+	User struct {
 		User         string
 		Password     string
 		SSHPublicKey string `yaml:"ssh_public_key"`

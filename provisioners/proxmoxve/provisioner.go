@@ -249,7 +249,7 @@ func (p *PveProvisioner) ScriptExecutor(scriptType models.ScriptType) models.Scr
 	}
 }
 func (p *PveProvisioner) client() *PveClient {
-	px := p.spec.Proxmox
+	px := &p.spec.Proxmox
 	return NewPveClient(PveClientOption{
 		Address:     px.Address,
 		User:        px.Account.User,
