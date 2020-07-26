@@ -65,3 +65,14 @@ func (s *PveSpec) String() string {
 func (s *PveSpec) Type() models.SpecType {
 	return models.SpecType("proxmox-ve")
 }
+func (s *PveSpec) LoadDefault(default_ models.Spec) error {
+	panic("implement me")
+}
+
+func (s *PveSpec) Validate() error {
+	panic("implement me")
+}
+
+func (s *PveSpec) ValidateDefault() error {
+	panic("implement me")
+}

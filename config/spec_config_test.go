@@ -56,12 +56,11 @@ func init() {
 
 type emptySpec struct{}
 
-func (*emptySpec) String() string {
-	return "empty"
-}
-func (*emptySpec) Type() models.SpecType {
-	return models.SpecType("empty")
-}
+func (*emptySpec) String() string                { return "empty" }
+func (*emptySpec) Type() models.SpecType         { return models.SpecType("empty") }
+func (*emptySpec) LoadDefault(models.Spec) error { return nil }
+func (*emptySpec) Validate() error               { return nil }
+func (*emptySpec) ValidateDefault() error        { return nil }
 
 type testSpec struct {
 	ClusterAddress string `yaml:"cluster_address"`
@@ -69,9 +68,8 @@ type testSpec struct {
 	Nodes          int
 }
 
-func (*testSpec) String() string {
-	return "test"
-}
-func (*testSpec) Type() models.SpecType {
-	return models.SpecType("test")
-}
+func (*testSpec) String() string                { return "test" }
+func (*testSpec) Type() models.SpecType         { return models.SpecType("test") }
+func (*testSpec) LoadDefault(models.Spec) error { return nil }
+func (*testSpec) Validate() error               { return nil }
+func (*testSpec) ValidateDefault() error        { return nil }

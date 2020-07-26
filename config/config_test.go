@@ -92,12 +92,11 @@ type fakeSpec struct {
 	Scripts *ScriptConfigSet
 }
 
-func (s *fakeSpec) String() string {
-	return "fakeSpec"
-}
-func (*fakeSpec) Type() models.SpecType {
-	return models.SpecType("fake_spec")
-}
+func (s *fakeSpec) String() string                   { return "fakeSpec" }
+func (*fakeSpec) Type() models.SpecType              { return models.SpecType("fake_spec") }
+func (*fakeSpec) LoadDefault(spec models.Spec) error { return nil }
+func (*fakeSpec) Validate() error                    { return nil }
+func (*fakeSpec) ValidateDefault() error             { return nil }
 
 type fakeScript struct {
 	FakeField1 string `yaml:"fake_field1"`

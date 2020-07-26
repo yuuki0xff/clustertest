@@ -11,6 +11,9 @@ type SpecType string
 type Spec interface {
 	fmt.Stringer
 	Type() SpecType
+	LoadDefault(default_ Spec) error
+	Validate() error
+	ValidateDefault() error
 }
 
 // InfraConfig represents current infrastructure configuration.
