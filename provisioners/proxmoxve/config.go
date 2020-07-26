@@ -5,8 +5,10 @@ import (
 	"github.com/yuuki0xff/clustertest/models"
 )
 
+const PveSpecType models.SpecType = "proxmox-ve"
+
 func init() {
-	config.SpecInitializers[models.SpecType("proxmox-ve")] = func() models.Spec { return &PveSpec{} }
+	config.SpecInitializers[PveSpecType] = func() models.Spec { return &PveSpec{} }
 }
 
 type PveSpec struct {
