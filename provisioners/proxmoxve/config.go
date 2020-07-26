@@ -19,6 +19,7 @@ type PveSpec struct {
 		// URL of the Proxmox VE API server.
 		// Example: https://pve.local:8006
 		Address string
+		// Login information.
 		Account struct {
 			User     string
 			Password string
