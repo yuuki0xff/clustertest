@@ -106,15 +106,8 @@ type fakeScript struct {
 	}
 }
 
-func (s *fakeScript) String() string {
-	return "fakeScript"
-}
-func (*fakeScript) Type() models.ScriptType {
-	return models.ScriptType("fake_script")
-}
-func (*fakeScript) SetAttr(key, value interface{}) {
-	panic("not implemented")
-}
-func (*fakeScript) GetAttr(key interface{}) interface{} {
-	panic("not implemented")
-}
+func (*fakeScript) String() string                      { return "fakeScript" }
+func (*fakeScript) Type() models.ScriptType             { return models.ScriptType("fake_script") }
+func (*fakeScript) SetAttr(key, value interface{})      { panic("not implemented") }
+func (*fakeScript) GetAttr(key interface{}) interface{} { panic("not implemented") }
+func (*fakeScript) Validate() error                     { return nil }
