@@ -146,7 +146,12 @@ func (vm PveVM) validate(v *config.Validator) {
 	v.Validate("storage_size", vm.StorageSize > 0).SetReason("storage_size must be greater than 0")
 
 	if s := vm.Scripts.Before.Get(); s != nil {
-		// todo: validate script object.
-		// v.Merge("scripts.before", s.Validate())
+		v.Merge("scripts.before", s.Validate())
+	}
+	if s := vm.Scripts.Main.Get(); s != nil {
+		v.Merge("scripts.main", s.Validate())
+	}
+	if s := vm.Scripts.After.Get(); s != nil {
+		v.Merge("scripts.after", s.Validate())
 	}
 }
