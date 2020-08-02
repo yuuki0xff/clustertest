@@ -70,7 +70,7 @@ func (s *PveSpec) String() string {
 	return "<PveSpec>"
 }
 func (s *PveSpec) Type() models.SpecType {
-	return models.SpecType("proxmox-ve")
+	return PveSpecType
 }
 func (s *PveSpec) LoadDefault(defaultSpec models.Spec) error {
 	default_ := defaultSpec.(*PveSpec)
