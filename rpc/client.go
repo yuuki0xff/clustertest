@@ -15,6 +15,9 @@ type Client struct {
 
 func NewClient() (*Client, error) {
 	addr := os.Getenv("CLUSTERTEST_SERVER")
+	if addr == "" {
+		addr = "http://localhost:9571"
+	}
 	return &Client{
 		client: jsonrpc.NewClient(addr),
 	}, nil
