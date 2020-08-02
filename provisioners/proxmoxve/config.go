@@ -91,7 +91,7 @@ func (s *PveSpec) validateCommon() *config.Validator {
 	v := &config.Validator{}
 	empty := PveSpec{}
 
-	v.Validate("name", s.Name == string(PveSpecType)).SetReason("name must be %s" + string(PveSpecType))
+	v.Validate("name", s.Name != "").SetReason("name must not be empty")
 	if s.Proxmox != empty.Proxmox {
 		addr, err := url.Parse(s.Proxmox.Address)
 		v.ValidateError("proxmox.url", err)
