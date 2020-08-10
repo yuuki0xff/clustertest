@@ -33,7 +33,23 @@ func (c *Config) init() error {
 	if len(c.Specs_) == 0 {
 		return errors.New("the Config.Specs is empty")
 	}
-	return nil
+
+	v := &Validator{}
+	for i, spec := range c.Specs() {
+		field := fmt.Sprintf("specs[%d]", i)
+		defaultSpec := models.Spec(nil) // todo: get default config.
+		v.Merge(field, c.initSpec(spec, defaultSpec))
+	}
+	return v.Error()
+}
+func (*Config) initSpec(spec, defaultSpec models.Spec) error {
+	if defaultSpec != nil {
+		err := spec.LoadDefault(defaultSpec)
+		if err != nil {
+			return err
+		}
+	}
+	return spec.Validate()
 }
 
 func LoadFromBytes(b []byte) (*Config, error) {

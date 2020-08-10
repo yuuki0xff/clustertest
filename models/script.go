@@ -31,6 +31,9 @@ type Script interface {
 	SetAttr(key, value interface{})
 	// GetAttr gets a value from attributes.
 	GetAttr(key interface{}) interface{}
+	// Validate validates this script. It returns an error if it is invalid.
+	// This method will return a *config.Error object. Therefore, callers should use the *config.Validator.
+	Validate() error
 	// Type specific methods
 	// ...
 }

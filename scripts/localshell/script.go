@@ -37,3 +37,6 @@ func (s *Script) GetAttr(key interface{}) interface{} {
 	}
 	return s.attrs[key]
 }
+func (*Script) Validate() error {
+	return nil
+}

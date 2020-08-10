@@ -92,12 +92,11 @@ type fakeSpec struct {
 	Scripts *ScriptConfigSet
 }
 
-func (s *fakeSpec) String() string {
-	return "fakeSpec"
-}
-func (*fakeSpec) Type() models.SpecType {
-	return models.SpecType("fake_spec")
-}
+func (s *fakeSpec) String() string                   { return "fakeSpec" }
+func (*fakeSpec) Type() models.SpecType              { return models.SpecType("fake_spec") }
+func (*fakeSpec) LoadDefault(spec models.Spec) error { return nil }
+func (*fakeSpec) Validate() error                    { return nil }
+func (*fakeSpec) ValidateDefault() error             { return nil }
 
 type fakeScript struct {
 	FakeField1 string `yaml:"fake_field1"`
@@ -107,15 +106,8 @@ type fakeScript struct {
 	}
 }
 
-func (s *fakeScript) String() string {
-	return "fakeScript"
-}
-func (*fakeScript) Type() models.ScriptType {
-	return models.ScriptType("fake_script")
-}
-func (*fakeScript) SetAttr(key, value interface{}) {
-	panic("not implemented")
-}
-func (*fakeScript) GetAttr(key interface{}) interface{} {
-	panic("not implemented")
-}
+func (*fakeScript) String() string                      { return "fakeScript" }
+func (*fakeScript) Type() models.ScriptType             { return models.ScriptType("fake_script") }
+func (*fakeScript) SetAttr(key, value interface{})      { panic("not implemented") }
+func (*fakeScript) GetAttr(key interface{}) interface{} { panic("not implemented") }
+func (*fakeScript) Validate() error                     { return nil }
