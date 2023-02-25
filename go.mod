@@ -19,10 +19,8 @@ require (
 	github.com/stretchr/testify v1.6.1
 	github.com/ybbus/jsonrpc v2.1.2+incompatible
 	github.com/yuuki0xff/yaml v2.1.0+incompatible
-	golang.org/x/net v0.0.0-20200707034311-ab3426394381 // indirect
-	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
-	golang.org/x/sys v0.0.0-20200625212154-ddb9806d33ae // indirect
-	golang.org/x/text v0.3.3 // indirect
+	golang.org/x/net v0.7.0 // indirect
+	golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4
 	google.golang.org/protobuf v1.25.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200615113413-eeeca48fe776 // indirect
